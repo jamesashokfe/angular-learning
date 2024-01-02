@@ -1,10 +1,20 @@
 <section class="filter">
   <form>
     <label for="filter__city" class="filter__city-label">Filter by city</label>
-    <input id="filter__city" class="filter__city" type="text" placeholder="Filter by city" />
-    <button class="filter__search primary" type="button">Search</button>
+    <input id="filter__city" class="filter__city" type="text" placeholder="Filter by city" #filter />
+    <button class="filter__search primary" type="button" (click)="filterResults(filter.value)">Search</button>
   </form>
 </section>
 <section class="results">
-  <app-housing-location *ngFor="let housingLocation of housingLocationList" [housingLocation]="housingLocation"></app-housing-location>
+  <!-- Testing v17 @if, @for syntax -->
+  @if (false) {
+    <pre>Old NgIf, NgFor syntax</pre>
+    <app-housing-location *ngFor="let housingLocation of filteredLocationList" [housingLocation]="housingLocation"></app-housing-location>
+  }
+  @else {
+    <pre>New &#64;if, &#64;for syntax</pre>
+    @for (housingLocation of filteredLocationList; track housingLocation.id) {
+      <app-housing-location [housingLocation]="housingLocation" (imageClick)="housingImageClick($event)"></app-housing-location>
+    }
+  }
 </section>
