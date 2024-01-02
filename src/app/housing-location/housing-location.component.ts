@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { HousingLocation } from '../housing-location';
 
 @Component({
   selector: 'app-housing-location',
   standalone: true,
-  imports: [RouterLink, RouterOutlet, NgOptimizedImage],
+  imports: [RouterLink, NgOptimizedImage],
   templateUrl: './housing-location.component.html',
   styleUrl: './housing-location.component.scss'
 })
