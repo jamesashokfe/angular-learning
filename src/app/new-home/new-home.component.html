@@ -2,3 +2,9 @@
   Housing Name: 
   <input type="text" id="house-name" [(ngModel)]="houseName">
 </label>
+
+<!-- Usage of Pipes -->
+<p>{{ registrationDate | date: 'MMM dd, yyyy' }}</p>
+<p>{{ 12.345678901 | number: '4.2-5' }}</p>
+<p>{{ 500 | currency: 'INR': 'symbol' }}</p>
+<p>{{ 5 | star }}</p>
